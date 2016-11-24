@@ -12,8 +12,15 @@ export class MessageComponent {
     @Output()
     editClicked = new EventEmitter<string>();
 
+    @Output()
+    deleteClicked = new EventEmitter<boolean>();
+    
     color = 'red'
     onEdit(){
         this.editClicked.emit('new edit emitted');
+    }
+
+    onDelete(){
+        this.deleteClicked.emit(true);
     }
 }
