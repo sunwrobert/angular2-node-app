@@ -1,5 +1,4 @@
-<input type="text" [(ngModel)]="message.content">
-<article class="panel panel-default">
+<article class="panel panel-default" [ngStyle]="{backgroundColor: color}" (mouseenter)="color='green'" (mouseleave)="color='red'">
     <div class="panel-body">
         {{message.content}}
     </div>
@@ -8,7 +7,7 @@
             {{message.username}}
         </div>
         <div class="config">
-            <a href="">Edit</a>
+            <a href="#" (click)="onEdit()">Edit</a>
             <a href="">Delete</a>
         </div>
     </footer>
