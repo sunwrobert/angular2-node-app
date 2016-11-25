@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from "./app.component";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageComponent } from './messages/message.component';
 import { MessageListComponent } from './messages/message-list.component';
 import { MessageInputComponent } from './messages/message-input.component';
@@ -26,7 +26,7 @@ import { routing } from './app.routing';
         SignupComponent,
         LogoutComponent
     ],
-    imports: [BrowserModule, FormsModule, routing],
+    imports: [BrowserModule, FormsModule, routing, ReactiveFormsModule],
     bootstrap: [AppComponent]
 })
 export class AppModule {
