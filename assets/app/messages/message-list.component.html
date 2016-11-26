@@ -1,0 +1,3 @@
+<div class="col-md-8 col-md-offset-2">
+    <app-message *ngFor="let message of messages" [message]="message" (deleteClicked)="this.messageService.deleteMessage(message)"></app-message>
+</div>

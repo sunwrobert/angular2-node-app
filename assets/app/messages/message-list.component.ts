@@ -3,11 +3,7 @@ import { Message } from './message';
 import { MessageService } from './message.service';
 @Component({
     selector: 'app-message-list',
-    template: `
-        <div class="col-md-8 col-md-offset-2">
-            <app-message *ngFor="let message of messages" [message]="message" (editClicked)="message.content = $event" (deleteClicked)="this.messageService.deleteMessage(message)"></app-message>
-        </div>
-    `,
+    templateUrl: './message-list.component.html'
 })
 export class MessageListComponent implements OnInit {
     messages: Message[];
@@ -18,6 +14,7 @@ export class MessageListComponent implements OnInit {
         this.messageService.getMessages()
             .subscribe(
                 (messages: Message[]) => {
+                    console.log(messages);
                     this.messages = messages;
                 }
             );

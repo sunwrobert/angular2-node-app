@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Message } from './message';
+import { MessageService } from './message.service';
 @Component({
     selector: 'app-message',
     templateUrl: './message.component.html',
@@ -9,18 +10,18 @@ export class MessageComponent {
     @Input()
     message: Message;
 
-    @Output()
-    editClicked = new EventEmitter<string>();
-
-    @Output()
-    deleteClicked = new EventEmitter<boolean>();
-    
     color = 'red'
+
+    constructor(private messageService: MessageService){}
+
     onEdit(){
-        this.editClicked.emit('new edit emitted');
+        this.messageService.editMessage(this.message);
     }
 
     onDelete(){
-        this.deleteClicked.emit(true);
+        this.messageService.deleteMessage(this.message)
+            .subscribe(
+                result => console.log(result)
+            );
     }
 }
