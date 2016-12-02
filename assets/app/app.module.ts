@@ -12,8 +12,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { LogoutComponent } from './auth/logout.component';
 import { SigninComponent } from './auth/signin.component';
 import { SignupComponent } from './auth/signup.component';
+import { ErrorComponent } from './errors/error.component';
 import { routing } from './app.routing';
 import { AuthService } from './auth/auth.service';
+import { ErrorService } from './errors/error.service';
 
 @NgModule({
     declarations: [
@@ -26,7 +28,8 @@ import { AuthService } from './auth/auth.service';
         HeaderComponent,
         SigninComponent,
         SignupComponent,
-        LogoutComponent
+        LogoutComponent,
+        ErrorComponent
     ],
     imports: [
         BrowserModule,
@@ -35,7 +38,7 @@ import { AuthService } from './auth/auth.service';
         ReactiveFormsModule,
         HttpModule
     ],
-    providers: [AuthService],
+    providers: [AuthService, ErrorService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
