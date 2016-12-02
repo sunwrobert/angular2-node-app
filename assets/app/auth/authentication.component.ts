@@ -12,8 +12,7 @@ export class AuthenticationComponent {
 
     ngOnInit() { }
 
-    onLogout(){
-        this.authService.logout();
-        this.router.navigate(['/auth', 'signin']);
+    isLoggedIn() {
+        return this.authService.isLoggedIn();
     }
 }
